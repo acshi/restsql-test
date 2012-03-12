@@ -91,4 +91,17 @@ public class SqlResourceNegativeTest extends SqlResourceTestBase {
 					exception.getMessage());
 		}
 	}
+	
+	//Not sure were the best place to put this is... but here will do for now.
+   @Test
+    public void testCaseSensitive() {
+        try {
+            final SqlResource sqlResource = Factory.getSqlResource("negative.CaseSensitive");
+            @SuppressWarnings("unused")
+            final Request request = RequestFactoryHelper.getRequest(Request.Type.SELECT, sqlResource
+                    .getName(), null, new String[] {});
+        } catch (final SqlResourceException exception) {
+            fail(exception.getMessage());
+        }
+    }
 }
